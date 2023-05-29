@@ -21,3 +21,11 @@ class Answer(models.Model):
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User, related_name='voter_answer')
+
+    def get_absolute_url(self):
+        # 현재 답변이 작성된 페이지 정보를 가져옴
+        answer_index = self.get_index()
+        page, r = divmod(answer_index, 10)
+        if r != 0:
+            page +=1
+        

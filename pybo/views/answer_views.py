@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 from django.utils import timezone
+from django.core.paginator import Paginator  
 
 from pybo.forms import AnswerForm
 from pybo.models import Question, Answer
